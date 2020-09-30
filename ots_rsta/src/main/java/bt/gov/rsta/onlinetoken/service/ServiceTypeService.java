@@ -11,6 +11,12 @@ import bt.gov.rsta.onlinetoken.repository.ServiceTypeRepository;
 
 @Service
 public class ServiceTypeService {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
 
 	@Autowired
 	private ServiceTypeRepository serviceTypeRepository;

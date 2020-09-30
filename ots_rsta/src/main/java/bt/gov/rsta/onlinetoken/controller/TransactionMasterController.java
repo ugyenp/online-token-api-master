@@ -15,6 +15,12 @@ import bt.gov.rsta.onlinetoken.service.TransactionMasterService;
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200", "http://172.16.165.156:4200"})
 public class TransactionMasterController {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
 
 	@Autowired
 	private TransactionMasterService transactionMasterService;

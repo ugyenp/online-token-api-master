@@ -15,6 +15,12 @@ import bt.gov.rsta.onlinetoken.repository.OtpRepository;
 @Service
 public class OtpService {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Autowired
 	private OtpRepository otpRepository;
 

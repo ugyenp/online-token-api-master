@@ -22,6 +22,12 @@ import bt.gov.rsta.onlinetoken.repository.TokenSequencceRepository;
 @CrossOrigin(origins = {"http://localhost:4200", "http://172.16.165.156:4200"})
 public class GenerateTokenController {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Autowired
 	private GenerateTokenRepository generateTokenRepository; 
 	
@@ -34,8 +40,12 @@ public class GenerateTokenController {
 	}
 	
 	@GetMapping("/getTokenDetails/{token_no}")
-	public GenerateTokenModel getTokenDetailsByTokenNo(@PathVariable ("token_no") String token_no){
-		return generateTokenRepository.getTokenDetailsByTokenNo(token_no);
+	public GenerateTokenModel getTokenDetailsByTokenNo(@PathVariable ("token_no") String token_no) throws Exception{
+		if(generateTokenRepository.getTokenDetailsByTokenNo(token_no) != null) {
+			return generateTokenRepository.getTokenDetailsByTokenNo(token_no);
+		} else {
+			throw new Exception(token_no + " is incorrect");
+		}
 	}
 	
 	@GetMapping("/getTokenDetails/")
@@ -62,6 +72,5 @@ public class GenerateTokenController {
 			return tokenSequencceRepository.save(mapper);
 		});
 	}
-	
 
 }

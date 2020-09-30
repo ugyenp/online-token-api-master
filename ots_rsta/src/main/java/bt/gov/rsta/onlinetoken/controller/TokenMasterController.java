@@ -16,6 +16,12 @@ import bt.gov.rsta.onlinetoken.repository.TokenMasterRepository;
 @CrossOrigin(origins = {"http://localhost:4200", "http://172.16.165.156:4200"})
 public class TokenMasterController {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Autowired
 	private TokenMasterRepository tokenMasterRepository;
 	

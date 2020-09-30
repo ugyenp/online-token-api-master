@@ -10,6 +10,12 @@ import bt.gov.rsta.onlinetoken.model.TokenMasterModel;
 
 public interface TokenMasterRepository extends JpaRepository<TokenMasterModel, Integer> {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Query(value = "select * from t_master_token where juris_id = ?1", nativeQuery = true)
 	List<TokenMasterModel> getTokenDetailsByJurisId(int juris_id);
 	

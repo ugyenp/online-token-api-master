@@ -13,6 +13,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_transaction_master")
 public class TransactionMasterModel {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private String transaction_type;

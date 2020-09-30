@@ -8,6 +8,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_services_master")
 public class ServicesTypeModel {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private String services_type;

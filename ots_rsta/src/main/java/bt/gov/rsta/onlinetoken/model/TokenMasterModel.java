@@ -11,6 +11,12 @@ import javax.persistence.Table;
 @Table(name = "t_master_token")
 public class TokenMasterModel {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private Date token_date;

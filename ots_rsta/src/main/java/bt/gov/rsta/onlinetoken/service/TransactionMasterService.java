@@ -11,6 +11,12 @@ import bt.gov.rsta.onlinetoken.repository.TransactionMasterRepository;
 
 @Service
 public class TransactionMasterService {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
 
 	@Autowired
 	private TransactionMasterRepository transactionMasterRepository;

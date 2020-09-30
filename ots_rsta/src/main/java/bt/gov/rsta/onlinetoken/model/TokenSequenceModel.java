@@ -7,6 +7,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_token_sequence")
 public class TokenSequenceModel {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private int sequence;

@@ -8,6 +8,12 @@ import javax.persistence.Table;
 @Table(name = "t_generate_token")
 public class GenerateTokenModel {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private String transaction_type;

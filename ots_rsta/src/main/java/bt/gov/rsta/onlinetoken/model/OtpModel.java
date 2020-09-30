@@ -10,6 +10,12 @@ import javax.persistence.Table;
 @Table(name = "t_otp")
 public class OtpModel {
 	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
+	
 	@Id
 	private int id;
 	private int otp_number;

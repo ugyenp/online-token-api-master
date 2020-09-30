@@ -7,5 +7,11 @@ import bt.gov.rsta.onlinetoken.model.ServicesTypeModel;
 
 @Repository
 public interface ServiceTypeRepository extends CrudRepository<ServicesTypeModel, Integer> {
+	
+	/*
+	 * Author: Ugyen Penjor 
+	 * Designation: Software Engineer 
+	 * NGN Technologies Pvt Ltd @ 2020
+	 */
 
 }
