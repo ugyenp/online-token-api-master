@@ -1,4 +1,5 @@
 package bt.gov.rsta.onlinetoken.repository;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,5 +15,5 @@ public interface GenerateTokenRepository extends JpaRepository<GenerateTokenMode
 	
 	@Query(value = "SELECT * FROM t_generate_token g WHERE g.token_no = ?1", nativeQuery = true)
 	GenerateTokenModel getTokenDetailsByTokenNo(String token_no);
-
+	
 }

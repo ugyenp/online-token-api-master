@@ -1,22 +1,18 @@
 package bt.gov.rsta.onlinetoken.controller;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import bt.gov.rsta.onlinetoken.model.GenerateTokenModel;
-import bt.gov.rsta.onlinetoken.model.TokenSequenceModel;
+import bt.gov.rsta.onlinetoken.model.MaxTokenModel;
 import bt.gov.rsta.onlinetoken.repository.GenerateTokenRepository;
-import bt.gov.rsta.onlinetoken.repository.TokenSequencceRepository;
+import bt.gov.rsta.onlinetoken.service.GenerateTokenService;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200", "http://172.16.165.156:4200"})
@@ -32,7 +28,7 @@ public class GenerateTokenController {
 	private GenerateTokenRepository generateTokenRepository; 
 	
 	@Autowired
-	private TokenSequencceRepository tokenSequencceRepository;
+	private GenerateTokenService generateTokenService;
 	
 	@PostMapping("/savetokenDetails")
 	public GenerateTokenModel saveTokenDetails(@RequestBody GenerateTokenModel generateTokenModel) {
@@ -48,16 +44,11 @@ public class GenerateTokenController {
 		}
 	}
 	
-	@GetMapping("/getTokenDetails/")
+	@GetMapping("/getTokenDetails")
 	public List<GenerateTokenModel> getTokenDetails(){
 		List<GenerateTokenModel>  generateTokenModel = new ArrayList<>();
 		generateTokenRepository.findAll().forEach(generateTokenModel::add);
 		return generateTokenModel;
-	}
-	
-	@GetMapping("/tokenSequence/{id}")
-	public TokenSequenceModel getTokenSequence(@PathVariable ("id") int id) {
-		return tokenSequencceRepository.findById(id).get();
 	}
 	
 	@PostMapping("/saveTokenDetails")
@@ -65,12 +56,9 @@ public class GenerateTokenController {
 		return generateTokenRepository.save(generateTokenModel);
 	}
 	
-	@PutMapping("updateTokenSequence/{id}")
-	public Optional<Object> updateTokenSequence(@PathVariable ("id") int id, @RequestBody TokenSequenceModel tokenSequenceModel) {
-		return tokenSequencceRepository.findById(id).map(mapper -> {
-			mapper.setSequence(tokenSequenceModel.getSequence());
-			return tokenSequencceRepository.save(mapper);
-		});
+	@GetMapping("maxToken/{token_id}/{appointment_time_from}/{appointment_time_to}")
+	public @ResponseBody List<MaxTokenModel> getMaxTokenNo(@PathVariable ("token_id") int token_id, @PathVariable ("appointment_time_from") String appointment_time_from, @PathVariable ("appointment_time_to") String appointment_time_to) {
+		return generateTokenService.getMaxTokenNumber(token_id,appointment_time_from,appointment_time_to);
 	}
-
+	
 }

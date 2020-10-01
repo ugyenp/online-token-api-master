@@ -20,9 +20,10 @@ public class GenerateTokenModel {
 	private String service_type;
 	private String customer_id;
 	private String identity_number;
-	private String token_no;
+	private int token_no;
 	private int token_id;
-	private String appointment_time;
+	private String appointment_time_from;
+	private String appointment_time_to;
 	
 	public GenerateTokenModel() {
 		super();
@@ -59,10 +60,10 @@ public class GenerateTokenModel {
 		this.identity_number = identity_number;
 	}
 	
-	public String getToken_no() {
+	public int getToken_no() {
 		return token_no;
 	}
-	public void setToken_no(String token_no) {
+	public void setToken_no(int token_no) {
 		this.token_no = token_no;
 	}
 	public int getToken_id() {
@@ -71,12 +72,18 @@ public class GenerateTokenModel {
 	public void setToken_id(int token_id) {
 		this.token_id = token_id;
 	}
-	public String getAppointment_time() {
-		return appointment_time;
+	public String getAppointment_time_from() {
+		return appointment_time_from;
 	}
-	public void setAppointment_time(String appointment_time) {
-		this.appointment_time = appointment_time;
+	public void setAppointment_time_from(String appointment_time_from) {
+		this.appointment_time_from = appointment_time_from;
+	}
+	public String getAppointment_time_to() {
+		return appointment_time_to;
+	}
+	public void setAppointment_time_to(String appointment_time_to) {
+		this.appointment_time_to = appointment_time_to;
 	}
 	
-
+	
 }
