@@ -13,7 +13,7 @@ import bt.gov.rsta.onlinetoken.model.ServicesTypeModel;
 import bt.gov.rsta.onlinetoken.service.ServiceTypeService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "http://172.16.165.156:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "*"})
 public class ServiceTypeController {
 	
 	/*
@@ -34,5 +34,5 @@ public class ServiceTypeController {
 	public List<ServicesTypeModel> getServices() {
 		return serviceTypeService.getServices();
 	}
-
+	
 }

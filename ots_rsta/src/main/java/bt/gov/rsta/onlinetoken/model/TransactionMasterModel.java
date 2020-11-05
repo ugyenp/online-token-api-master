@@ -23,6 +23,7 @@ public class TransactionMasterModel {
 	@Id
 	private int id;
 	private String transaction_type;
+	private Boolean isSelected;
 	
 	@OneToMany(targetEntity = ServicesTypeModel.class,cascade = CascadeType.ALL)
 	  @JoinColumn(name = "transaction_id",referencedColumnName = "id")
@@ -70,6 +71,16 @@ public class TransactionMasterModel {
 
 	public void setServiceJoin(List<ServicesTypeModel> serviceJoin) {
 		this.serviceJoin = serviceJoin;
+	}
+
+
+	public boolean isSelected() {
+		return isSelected;
+	}
+
+
+	public void setSelected(boolean isSelected) {
+		this.isSelected = isSelected;
 	}
 
 	

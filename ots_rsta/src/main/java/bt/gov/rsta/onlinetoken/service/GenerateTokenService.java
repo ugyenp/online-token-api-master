@@ -1,5 +1,4 @@
 package bt.gov.rsta.onlinetoken.service;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,7 +16,6 @@ public class GenerateTokenService {
 	@SuppressWarnings("unchecked")
 	public List<MaxTokenModel> getMaxTokenNumber(int token_id, String appointment_time_from, String appointment_time_to){
 		
-		List<MaxTokenModel> maxTokenModel = new ArrayList<MaxTokenModel>();
 		String queryStr = "SELECT MAX(a.token_no) maximumTokenNo "
 				+ "FROM t_generate_token a "
 				+ "WHERE a.`token_id` = ?1  AND "

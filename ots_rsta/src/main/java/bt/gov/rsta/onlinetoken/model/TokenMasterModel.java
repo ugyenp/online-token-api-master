@@ -2,7 +2,6 @@ package bt.gov.rsta.onlinetoken.model;
 
 import java.sql.Date;
 import java.sql.Time;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -73,7 +72,6 @@ public class TokenMasterModel {
 		this.time_slot = time_slot;
 	}
 
-
 	public Time getStart_time() {
 		return start_time;
 	}
@@ -105,7 +103,6 @@ public class TokenMasterModel {
 	public void setEnd_break_time(Time end_break_time) {
 		this.end_break_time = end_break_time;
 	}
-	
-	
 
+	
 }
