@@ -1,6 +1,5 @@
 package bt.gov.rsta.onlinetoken.controller;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bt.gov.rsta.onlinetoken.model.GeneratedTokenModel;
 import bt.gov.rsta.onlinetoken.model.MaxTokenModel;
-import bt.gov.rsta.onlinetoken.model.TokenDetails;
 import bt.gov.rsta.onlinetoken.repository.GenerateTokenRepository;
 import bt.gov.rsta.onlinetoken.service.GenerateTokenService;
 
@@ -34,10 +32,6 @@ public class GenerateTokenController {
 	@Autowired
 	private GenerateTokenService generateTokenService;
 	
-//	@PostMapping("/savetokenDetails")
-//	public GenerateTokenModel saveTokenDetails(@RequestBody GenerateTokenModel generateTokenModel) {
-//		return generateTokenRepository.save(generateTokenModel);
-//	}
 	
 	@GetMapping("/getTokenDetails/{token_no}")
 	public List<GeneratedTokenModel> getTokenDetailsByTokenNo(@PathVariable ("token_no") String token_no) throws Exception{
@@ -55,7 +49,7 @@ public class GenerateTokenController {
 		return generatedTokenModel;
 	}
 	
-	@PostMapping("/saveTokenDetails")
+	@PostMapping("/saveNewRegistrationTokenDetails")
 	public GeneratedTokenModel saveTokenDetail(@RequestBody GeneratedTokenModel generatedTokenModel) {
 		return generateTokenRepository.save(generatedTokenModel);
 	}
@@ -71,20 +65,8 @@ public class GenerateTokenController {
 	}
 	
 	@PostMapping("/savetokenDetails")
-	public GeneratedTokenModel saveGeneratedTokenDetails(@RequestBody List<TokenDetails> tokenDetails) {
-		for(int i = 0; i < tokenDetails.size(); i++) {
-			GeneratedTokenModel token = new GeneratedTokenModel();
-			token.setToken_id(tokenDetails.get(i).getToken_id());
-			token.setToken_no(tokenDetails.get(i).getToken_no());
-			token.setAppointment_time_from(tokenDetails.get(i).getAppointment_time_from());
-			token.setAppointment_time_to(tokenDetails.get(i).getAppointment_time_to());
-			token.setCustomer_id(tokenDetails.get(i).getCustomer_id());
-			token.setIdentity_number(tokenDetails.get(i).getIdentity_number());
-			token.setService_type(tokenDetails.get(i).getService_type());
-			token.setIdentity_type(tokenDetails.get(i).getIdentity_type());
-			token.setService(tokenDetails.get(i).getService());
-			generateTokenRepository.save(token);
-		}
+	public GeneratedTokenModel saveGeneratedTokenDetails(@RequestBody List<GeneratedTokenModel> tokenDetails) {
+		generateTokenRepository.saveAll(tokenDetails);
 		return null;
 	}
 	

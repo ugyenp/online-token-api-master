@@ -18,8 +18,6 @@ import com.squareup.okhttp.OkHttpClient;
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200"})
 public class ApiController {
-	private static String CONSUMER_KEY = "aWgpDx82PyThKpqyDcQWaiVAE34a";
-	private static String CONSUMER_SECRET = "fW_OlP2JZkhqWnnaYZeY2ULl7toa";
 	
 	@RequestMapping("/getcitizendetails/{cidnumber}")
 	public ResponseEntity<?> getCitizenDetails(@PathVariable("cidnumber") String cidnumber) throws Exception {
@@ -31,9 +29,6 @@ public class ApiController {
 		ApiClient apiClient = new ApiClient();
 		apiClient.setHttpClient(httpClient);
 		
-//		apiClient.setBasePath("https://datahub-apim.dit.gov.bt/dcrc_citizen_details_api/1.0.0");
-//		ResponseEntity<Token> token = getApplicationToken();
-//		apiClient.setAccessToken(token.getBody().getAccess_token());
 		
 		apiClient.setBasePath("https://stg-api.dit.gov.bt/dcrc_citizen_details_api/1.0.0");
 		apiClient.setAccessToken("1f46a200-22d5-3ec0-943a-39315f5db09f");

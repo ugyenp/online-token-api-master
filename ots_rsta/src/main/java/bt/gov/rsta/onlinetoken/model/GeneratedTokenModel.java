@@ -3,6 +3,8 @@ package bt.gov.rsta.onlinetoken.model;
 import java.sql.Time;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,25 +23,73 @@ public class GeneratedTokenModel {
 	 * NGN Technologies Pvt Ltd @ 2020
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private String service;
 	private String service_type;
 	private String customer_id;
 	private String identity_number;
 	private String identity_type;
-	private String service;
 	private int token_no;
 	private int token_id;
-	@JsonFormat(pattern = "HH:mm")
+	@JsonFormat(pattern = "HH:mm:ss")
 	@JsonDeserialize(using = SqlTimeDeserializer.class)
 	private Time appointment_time_from;
-	@JsonFormat(pattern = "HH:mm")
+	@JsonFormat(pattern = "HH:mm:ss")
 	@JsonDeserialize(using = SqlTimeDeserializer.class)
 	private Time appointment_time_to;
+	private String first_name;
+	private String middle_name;
+	private String last_name;
+	private String mobile_number;
+	private String document_checked;
+	private int user_id;
 	
 	public GeneratedTokenModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getMiddle_name() {
+		return middle_name;
+	}
+
+	public void setMiddle_name(String middle_name) {
+		this.middle_name = middle_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public String getMobile_number() {
+		return mobile_number;
+	}
+
+	public void setMobile_number(String mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+
+	public String getDocument_checked() {
+		return document_checked;
+	}
+
+	public void setDocument_checked(String document_checked) {
+		this.document_checked = document_checked;
+	}
+
 	public String getService() {
 		return service;
 	}
@@ -103,5 +153,13 @@ public class GeneratedTokenModel {
 	public void setAppointment_time_to(Time appointment_time_to) {
 		this.appointment_time_to = appointment_time_to;
 	}
-	
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
 }
