@@ -30,6 +30,7 @@ public class GeneratedTokenModel {
 	private String customer_id;
 	private String identity_number;
 	private String identity_type;
+	private String cid_passport_no;
 	private int token_no;
 	private int token_id;
 	@JsonFormat(pattern = "HH:mm:ss")
@@ -50,6 +51,18 @@ public class GeneratedTokenModel {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public String getCid_passport_no() {
+		return cid_passport_no;
+	}
+
+
+	public void setCid_passport_no(String cid_passport_no) {
+		this.cid_passport_no = cid_passport_no;
+	}
+
+
+
 	public String getFirst_name() {
 		return first_name;
 	}
