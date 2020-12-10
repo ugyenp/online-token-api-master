@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import bt.gov.rsta.onlinetoken.model.AppointmentModel;
+import bt.gov.rsta.onlinetoken.model.AppointmentTime;
 import bt.gov.rsta.onlinetoken.model.OfficialMasterModel;
 import bt.gov.rsta.onlinetoken.model.ServicesTypeModel;
 import bt.gov.rsta.onlinetoken.model.CounterModel;
 import bt.gov.rsta.onlinetoken.repository.AppointmentRepository;
+import bt.gov.rsta.onlinetoken.repository.AppointmentTimeRepository;
 import bt.gov.rsta.onlinetoken.repository.OfficialMasterRepository;
 import bt.gov.rsta.onlinetoken.repository.CounterRepository;
 import bt.gov.rsta.onlinetoken.service.ServiceTypeService;
@@ -43,6 +45,9 @@ public class ServiceTypeController {
 	
 	@Autowired
 	private CounterRepository counterRepository;
+	
+	@Autowired
+	private AppointmentTimeRepository appointmentTimeRepository;
 	
 	
 	@RequestMapping(value = "/get-service-id/{id}", method = RequestMethod.GET)
@@ -84,5 +89,12 @@ public class ServiceTypeController {
 	@GetMapping("/getCounterDetailsByJurisId/{juris_id}")
 	public List<CounterModel> getCounterDetailsByJuridId(@PathVariable ("juris_id") int juris_id){
 		return counterRepository.getCounterDtailsByJurisId(juris_id);
+	}
+	
+	@GetMapping("/appointmentTime")
+	private List<AppointmentTime> getAppointmentTime(){
+		List<AppointmentTime> appointmentTime = new ArrayList<AppointmentTime>();
+		appointmentTimeRepository.findAll().forEach(appointmentTime::add);
+		return appointmentTime;
 	}
 }
